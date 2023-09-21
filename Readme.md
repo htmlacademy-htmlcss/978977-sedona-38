@@ -1,7 +1,7 @@
 # Личный проект «Седона»
 
-* Студент: [Ольга Дроганова](https://up.htmlacademy.ru/htmlcss/38/user/978977).
-* Наставник: `Неизвестно`.
+- Студент: [Ольга Дроганова](https://up.htmlacademy.ru/htmlcss/38/user/978977).
+- Наставник: [Олег Зайцев] (https://htmlacademy.ru/profile/ozi).
 
 ---
 
