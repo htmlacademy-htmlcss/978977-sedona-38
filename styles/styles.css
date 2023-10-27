@@ -28,46 +28,93 @@ body {
   margin: 0 auto;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 }
-.navigation-logo {
+.visually-hidden {
   position: absolute;
-  left: -85px;
-}
-.navigation {
-  display: flex;
-  height: 64px;
+  padding: 0;
+  margin: -1;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
 }
 
+/*headre*/
+.page-header {
+  padding: 0 70px;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  position: relative;
+  min-height: 64px;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+.navigation-logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .navigation-list,
 .navigation-user,
 .navigation-link {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
   color: #000000;
+  list-style: none;
+  text-decoration: none;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
+  padding: 0;
+  margin: 0;
 }
 .navigation-list {
   display: flex;
+  gap: 20px;
   margin-left: 180px;
-  padding: 20px 0;
-  gap: 32px;
+}
+.navigation-link {
+  display: block;
+  padding: 20px 6px;
 }
 .navigation-user {
   display: flex;
-  padding: 20px 0;
+  padding: 0;
+  gap: 12px;
+  margin-left: auto;
 }
-.navigation-item-favorites {
-  position: relative;
-  background-image: url(../images/heart.svg);
+.navigation-search {
+  display: block;
   width: 18px;
-  height: 17px;
+  min-height: 18px;
+  padding: 22px 6px;
+  margin: 0;
+  background-image: url(../images/search.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navigation-favorites {
+  display: block;
+  position: relative;
+  width: 18px;
+  min-height: 17px;
+  padding: 22px 6px;
+  margin: 0;
+  background-image: url(../images/heart.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .favorites {
   display: flex;
   position: absolute;
+  top: 10px;
+  right: -3px;
   font-size: 10px;
   font-weight: 400;
   line-height: 10px;
@@ -76,15 +123,20 @@ body {
   justify-content: center;
   align-items: center;
   width: 20px;
-  height: 20px;
+  min-height: 20px;
   border-radius: 50%;
 }
 .navigation-item-button {
   display: flex;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
   background-color: #756157;
   padding: 0;
+  margin: 14px 0;
+  margin-left: 15px;
   width: 160px;
-  height: 36px;
+  min-height: 36px;
   justify-content: center;
   border-radius: 4px;
   text-transform: uppercase;
@@ -93,40 +145,44 @@ body {
   color: #ffffff;
   margin: auto 0;
 }
-.page-header {
-  position: relative;
-  padding: 0 70px;
-  margin: 0;
-  z-index: 1;
-}
-.visually-hidden {
+.navigation-link-wish {
   padding: 0;
   margin: 0;
-  visibility: hidden;
-  width: 1px;
-  height: 1px;
+  text-decoration: none;
 }
+
+/*Первый блок майн*/
+
 .hero {
+  position: relative;
   text-align: center;
   background-color: #82b3d3;
   padding: 0;
   margin: 0;
   background-image: url("../images/photo-main/index-background.jpg");
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
 }
-/*
 .hero::after {
   content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  min-height: 57px;
   background-image: url(../images/after-hero.svg);
   background-size: 100% auto;
   background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
 }
-*/
+
 .photo-sedona {
   padding-top: 51px;
   padding-bottom: 82px;
 }
+
+/*Второй блок*/
+
 .sedona-town {
   text-align: center;
   padding: 69px 0;
@@ -166,6 +222,8 @@ p {
   color: #333333;
 }
 .advantages-list {
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -191,25 +249,41 @@ p {
   margin: 0;
 }
 .advantages-item-second {
+  display: flex;
+  flex: 1 0 33.333%;
+  max-width: 230px;
+  min-height: 170px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: #83b3d31f;
   margin: 0;
-  padding: 95px 85px;
+  padding: 103px 85px;
 }
 .advantages-item {
+  display: flex;
+  max-width: 230px;
+  min-height: 170px;
+  flex: 1 0 33.333%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: #83b3d333;
   margin: 0;
-  padding: 95px 85px;
+  padding: 103px 85px;
 }
 .advantages-item-basic:last-child {
   flex-direction: row-reverse;
 }
+/*Третий блок*/
 .cometo-sedona {
   width: 505px;
   text-align: center;
-  padding: 64px 0;
+  padding: 41px 0;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 .services-list {
   display: flex;
@@ -223,58 +297,67 @@ p {
   font-size: 18px;
   font-weight: 400;
   line-height: 21px;
-  width: 180px;
+  max-width: 180px;
   margin: 0 auto;
 }
 .services-home {
-  width: 230px;
-  height: 225px;
+  max-width: 230px;
+  min-height: 225px;
+  flex: 1 0 33.3333%;
   padding: 80px 85px;
   text-align: center;
   background-image: url(../images/house-icon.svg);
   background-repeat: no-repeat;
   background-color: #83b3d31f;
+  background-position: center 80px;
 }
 .services-home h3,
 .services-food h3,
 .services-present h3 {
   margin: 30px 0;
+  padding-top: 75px;
 }
 .services-food {
   position: relative;
-
-  width: 230px;
-  height: 225px;
+  max-width: 230px;
+  min-height: 225px;
+  flex: 1 0 33.3333%;
   padding: 80px 85px;
   text-align: center;
   background-image: url(../images/food-icon.svg);
   background-repeat: no-repeat;
+  background-position: center 80px;
 }
 
 .services-present {
-  width: 230px;
-  height: 225px;
+  max-width: 230px;
+  min-height: 225px;
+  flex: 1 0 33.3333%;
   padding: 80px 85px;
   text-align: center;
   background-image: url(../images/present-icon.svg);
   background-repeat: no-repeat;
   background-color: #83b3d31f;
+  background-position: center 80px;
 }
+
+/*Четвёртый блок*/
+
 .interested p {
   color: #333333;
   margin-bottom: 54px;
 }
 .interested {
   display: block;
-  width: 590px;
+  max-width: 590px;
   text-align: center;
   padding: 96px 0;
   margin: 0 auto;
 }
 .interested .button {
   display: block;
-  width: 276px;
-  height: 36px;
+  max-width: 276px;
+  max-height: 36px;
   text-decoration: none;
   font-size: 20px;
   font-weight: 700;
@@ -283,10 +366,13 @@ p {
   color: #ffffff;
   padding: 8px 50px;
   margin: 0 auto;
-  justify-content: center;
   border-radius: 4px;
   background-color: #756157;
+  overflow: hidden;
 }
+
+/*Подписка на рассылку*/
+
 .subscribe {
   display: flex;
   text-align: center;
@@ -308,23 +394,26 @@ p {
   margin: 0 auto;
 }
 .subscribe__form {
-  width: 694px;
-  height: 52px;
+  display: flex;
+  min-width: 694px;
+
   padding: 0;
   margin: 0 auto;
 }
 .subscribe__form-field {
   width: 412px;
-  height: 26px;
   color: #000000;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
   padding: 12px 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: 0;
 }
 .subscribe__form-button {
-  width: 132px;
-  height: 36px;
+  display: block;
+  font-family: inherit;
   font-size: 20px;
   font-weight: 700;
   line-height: 36px;
@@ -333,4 +422,34 @@ p {
   padding: 8px 50px;
   background-color: #82b3d3;
   border: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*Футер*/
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 70px;
+  padding-top: 40px;
+}
+
+.social-list {
+  display: flex;
+  list-style: none;
+  min-width: 142px;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+.footer-contacts {
+  max-width: 720px;
+}
+.footer-phone {
+  font-size: 40px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #000000;
 }
