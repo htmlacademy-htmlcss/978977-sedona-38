@@ -453,3 +453,39 @@ p {
   text-decoration: none;
   color: #000000;
 }
+/*Каталог фильтр*/
+.filters {
+  padding: 70px;
+  padding-top: 35px;
+  margin: 0;
+  background-color: #82b3d3;
+  background-image: url(../images/catalog/filter-catalog.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.inner-title {
+  color: #ffffff;
+  font-size: 60px;
+  line-height: 78px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+.breadcrumbs-list {
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumbs-link:nth-child(1) {
+  display: block;
+  width: 13px;
+  min-height: 13px;
+  padding: 6px;
+  margin: 0;
+  background-image: url(../images/icons-home.svg);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #ffffff;
+  text-decoration: none;
+}
