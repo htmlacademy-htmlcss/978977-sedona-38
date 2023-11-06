@@ -147,43 +147,51 @@
                     >до<input type="text" value="9000" name="cost-max"
                   /></label>
                 </fieldset>
-                <button class="button" type="submit">Применить</button>
-                <button class="button" type="reset">Сбросить</button>
+                <div class="button-filters">
+                  <button class="button-catalog" type="submit">
+                    Применить
+                  </button>
+                  <button class="button-catalog" type="reset">Сбросить</button>
+                </div>
               </div>
             </form>
           </section>
           <section class="catalog">
-            <h2 class="visually-hidden">Результат поиска</h2>
-            <p class="catalog-result"><b>Найдено гостиниц: 38</b></p>
-            <select>
-              <option value="cheep">Сначала дешевые</option>
-              <option value="expensive">Сначала дорогое</option>
-              <option value="popular">Сначала популярное</option>
-            </select>
-            <a href="#" class="show-button">
-              <img
-                src="images/catalog/small-icons.svg"
-                width="16"
-                height="14"
-                alt="Показать мелкие значки"
-              />
-            </a>
-            <a href="#" class="show-button">
-              <img
-                src="images/catalog/large-icons.svg"
-                width="16"
-                height="14"
-                alt="Показать крупные значки"
-              />
-            </a>
-            <a href="#" class="show-button">
-              <img
-                src="images/catalog/list.svg"
-                width="16"
-                height="14"
-                alt="Показать списком"
-              />
-            </a>
+            <div class="catalog-options">
+              <h2 class="visually-hidden">Результат поиска</h2>
+              <p class="catalog-result">Найдено гостиниц: 38</p>
+              <div class="sorting-container">
+                <select class="select-control" aria-label="Сортировка">
+                  <option value="cheep">Сначала дешевые</option>
+                  <option value="expensive">Сначала дорогое</option>
+                  <option value="popular">Сначала популярное</option>
+                </select>
+                <a href="#" class="button button-small">
+                  <img
+                    src="images/catalog/small-icons.svg"
+                    width="16"
+                    height="14"
+                    alt="Показать мелкие значки"
+                  />
+                </a>
+                <a href="#" class="button button-large">
+                  <img
+                    src="images/catalog/large-icons.svg"
+                    width="16"
+                    height="14"
+                    alt="Показать крупные значки"
+                  />
+                </a>
+                <a href="#" class="button button-list">
+                  <img
+                    src="images/catalog/list.svg"
+                    width="16"
+                    height="14"
+                    alt="Показать списком"
+                  />
+                </a>
+              </div>
+            </div>
             <ul class="product-list">
               <li class="product-card">
                 <a class="product-card-link" href="#">
