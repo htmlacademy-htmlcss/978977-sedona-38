@@ -30,7 +30,7 @@ body {
 }
 .wrapper {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   background-color: #ffffff;
   width: 1200px;
   height: 100%;
@@ -464,6 +464,7 @@ p {
   border: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  cursor: pointer;
 }
 
 /*Футер*/
@@ -497,6 +498,11 @@ p {
   text-decoration: none;
   color: #000000;
 }
+/*Каталог*/
+.page-container {
+  display: flex;
+  flex-direction: column;
+}
 /*Каталог фильтр*/
 .filters {
   padding: 70px;
@@ -518,9 +524,13 @@ p {
 .breadcrumbs-list {
   display: flex;
   list-style: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
 }
 
-.breadcrumbs-link:nth-child(1) {
+.breadcrumbs-item:first-child {
   display: block;
   width: 13px;
   min-height: 13px;
@@ -532,4 +542,86 @@ p {
   background-position: center;
   color: #ffffff;
   text-decoration: none;
+}
+.search-hotel-filters {
+  display: flex;
+  color: #ffffff;
+}
+.catalog-filter-title,
+.prise-range-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 0;
+  margin-bottom: 32px;
+}
+.catalog-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.catalog-filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  width: 371px;
+  justify-content: space-between;
+}
+.catalog-filter-item {
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 23px;
+  padding: 0;
+  margin: 0;
+}
+
+.catalog-filter-group {
+  border: none;
+  width: 151px;
+  padding: 0;
+  margin: 0;
+}
+/*чекбоксы, выровнять и сделать галочку*/
+li input {
+  display: none;
+}
+label:first-child:before {
+  content: "";
+  display: inline-block;
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+}
+.prise-range-grop {
+  display: flex;
+  padding: 0;
+  margin-left: auto;
+}
+.prise-range {
+  display: flex;
+  border: none;
+  gap: 2px;
+}
+.prise-range-range {
+  width: 103px;
+  max-height: 24px;
+  padding: 12px 20px;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+label .prise-range-range {
+  display: inline-block;
+  width: 103px;
 }
