@@ -17,8 +17,6 @@ html {
   height: 100%;
 }
 body {
-  display: flex;
-  flex-direction: column;
   height: 100%;
   font-family: "PT Sans", sans-serif;
   font-size: 18px;
@@ -33,7 +31,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
   width: 1200px;
-  height: 100%;
+  min-height: 100%;
   margin: 0 auto;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 }
@@ -71,7 +69,8 @@ body {
 }
 .navigation-list,
 .navigation-user,
-.navigation-link {
+.navigation-link,
+.navigation-link-activ {
   color: #000000;
   list-style: none;
   text-decoration: none;
@@ -90,16 +89,21 @@ body {
   display: block;
   padding: 20px 6px;
 }
-/*
-.navigation-link::after {
+.navigation-link-activ {
+  position: relative;
+  display: block;
+  padding: 20px 6px;
+}
+.navigation-link-activ::after {
   content: "";
   position: absolute;
-  left: 20px;
-  right: 20px;
+  display: inline-block;
+  left: 5px;
+  right: 5px;
   height: 2px;
-  bottom: 0;
+  bottom: -1px;
   background-color: #756257;
-}*/
+}
 .navigation-user {
   display: flex;
   padding: 0;
@@ -273,7 +277,39 @@ p {
   line-height: 21px;
   padding-top: 30px;
 }
+.advantages-title {
+  position: relative;
+  padding: 0;
+  padding-bottom: 30px;
+  margin: 0;
+}
+.advantages-item-second .advantages-title::after, .advantages-item .advantages-title::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  right: 0;
+  height: 2px;
+  width: 60px;
+  bottom: 0;
+  margin-left: -30px;
+  background-color: #0000004D;
+}
+
+.basic .advantages-title::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: 85px;
+  right: 0;
+  height: 2px;
+  width: 60px;
+  bottom: 0;
+  background-color: #FFFFFF4D;
+}
 .advantages-photo {
+  height: 100%;
+  object-fit: cover;
   padding: 0;
   margin: 0;
 }
@@ -538,7 +574,18 @@ p {
   font-size: 16px;
   font-weight: 400;
   line-height: 21px;
+  align-items: center;
 }
+/*Сделать стрелочку в хлебных крошках
+.breadcrumbs-link::before {
+  width: 8px;
+  padding: 5px 7px;
+  margin: 0;
+  background-image: url(../images/catalog/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+*/
 
 .breadcrumbs-item:first-child {
   display: block;
@@ -552,6 +599,7 @@ p {
   background-position: center;
   color: #ffffff;
   text-decoration: none;
+  cursor: pointer;
 }
 .search-hotel-filters {
   display: flex;
@@ -562,6 +610,7 @@ p {
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+  text-transform: capitalize;
   padding: 0;
   margin-bottom: 32px;
 }
@@ -580,8 +629,7 @@ p {
   justify-content: space-between;
 }
 .catalog-filter-item {
-  display: flex;
-  gap: 16px;
+
   font-size: 18px;
   font-weight: 400;
   line-height: 23px;
@@ -597,19 +645,70 @@ p {
 }
 /*чекбоксы, выровнять и сделать галочку*/
 li input {
-  display: none;
+  visibility: hidden;
 }
-label:first-child::before {
+.control {
+  display: flex;
+  position: relative;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.control::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background-color: #ffffff;
+  background-image: url(../images/catalog/tick.svg);
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 3px;
+  padding: 0;
+  margin: 0;
+}
+.control-radio {
+  display: flex;
+  position: relative;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.control-radio::before {
+  position: absolute;
   content: "";
   display: inline-block;
   background-color: #ffffff;
   width: 20px;
   height: 20px;
-  border-radius: 3px;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 0;
   margin: 0;
-  vertical-align:;
 }
+/*сделать выбор пунктов
+.control-radio:active {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+  background-image: url(../images/catalog/point-tick.svg);
+}
+*/
 .prise-range-grop {
   display: flex;
   width: 564px;
@@ -626,13 +725,19 @@ label:first-child::before {
   width: 103px;
   max-height: 24px;
   padding: 12px 20px;
-  align-items: center;
   background: #ffffff;
-  border-radius: 4px;
   color: #000000;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
+}
+.prise-range-range:last-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .button-filters{
   display: flex;
