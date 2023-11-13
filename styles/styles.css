@@ -810,8 +810,6 @@ li input {
   cursor: pointer;
 }
 .prise-range-range {
-  display: flex;
-  flex-direction: row-reverse;
   width: 103px;
   max-height: 24px;
   padding: 12px 20px;
@@ -820,8 +818,14 @@ li input {
   border: none;
   border-radius: 4px 0 0 4px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 24px;
+  appearance: textfield;
+}
+.prise-range-range::-webkit-outer-spin-button,
+.prise-range-range::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 .prise-range-range[name="cost-max"] {
   border-radius:  0 4px 4px 0;
@@ -867,7 +871,7 @@ li input {
 .toggle-max {
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  right: -10px;
 }
 .button-filters{
   display: flex;
@@ -959,6 +963,8 @@ li input {
 
 }
 .select-control {
+  cursor: pointer;
+  appearance: none;
   width: 293px;
   font-family: inherit;
   color: #333333;
@@ -969,8 +975,13 @@ li input {
   margin-right: 57px;
   border-radius: 4px;
   border: 2px solid #e5e5e5;
+  background-image: url(../images/catalog/select-control.svg);
+  background-repeat: no-repeat;
+  background-position: right 16px center;
 }
-.select-control:hover, .select-control:focus {
+.select-control:hover,
+.select-control:focus {
+  outline: none;
   border-color: #68a2ca;
 }
 .sorting-container .button {
@@ -1008,20 +1019,23 @@ li input {
 }
 /*Каталог*/
 .product-list {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 .product-card:last-child:after {
+  position: absolute;
   content: "";
-  display: block;
-  width: 1060px;
+  width: 100%;
   height: 1px;
-  margin: 40px 0 0 0;
+  left: 0;
+  bottom: 0;
+  margin: 0;
   background-color: #e6e6e6;
 }
 /*Карточка*/
@@ -1220,4 +1234,228 @@ li input {
   width: 500px;
   padding-bottom: 54px;
   margin: 0 auto;
+}
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2cc;
+  z-index: 2;
+}
+.modal {
+  position: relative;
+  width: 577px;
+  min-height: 448px;
+  border-radius: 30px;
+  margin: auto;
+  padding: 64px 70px;
+  background-color: #ffffff;
+  box-shadow: 0px 25px 50px 0px rgba(0, 0, 0, 0.15);
+}
+.modal-close-button {
+  position: absolute;
+  padding: 0;
+  top: 64px;
+  right: 54px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  border: none;
+  background-image: url("../images/catalog/close-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+.modal-close-button:hover {
+  border: none;
+  background-color: #e6e6e6;
+}
+.modal-close-button:focus {
+  border: none;
+  outline: 3px solid #83b3d3;
+  background-color: #e6e6e6;
+}
+.modal-close-button:active {
+  outline: none;
+  opacity: 0.3;
+  background-color: #e6e6e6;
+}
+.modal-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 64px;
+}
+.booking {
+  display: grid;
+  grid-template-columns: 137px 185px 137px;
+  align-items: center;
+  grid-template-areas:
+    "arrival-date field-date field-date field-date"
+    ". modal-error modal-error modal-error"
+    "departure-date field-date-departure field-date-departure field-date-departure"
+    ". dates-available-warning dates-available-warning dates-available-warning"
+    "adults adult-quantity children-label children-quantity"
+    "search-button search-button search-button search-button";
+}
+.arrival-date,
+.departure-date,
+.adults,
+.children-label {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000000;
+  text-transform: capitalize;
+}
+.field-date,
+.field-date-departure {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  width: 400px;
+  padding: 12px 20px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  background-image: url(../images/catalog/date.svg);
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+}
+.modal-error {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #ff5757;
+  margin-top: 4px;
+  margin-bottom: 23px;
+  padding: 0 20px;
+  grid-area: modal-error;
+}
+.departure-date {
+  grid-area: departure-date;
+}
+.field-date-departure {
+  grid-area: field-date-departure;
+}
+.dates-available-warning {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  padding: 0 20px;
+  margin-top: 4px;
+  margin-bottom: 23px;
+  grid-area: dates-available-warning;
+}
+.adults {
+  grid-area: adults;
+}
+.adult-quantity {
+  display: flex;
+  grid-area: adult-quantity;
+}
+.minus-button {
+  border-radius: 4px 0 0 4px;
+  border: none;
+  width: 34px;
+  height: 48px;
+  background-color: #f2f2f2;
+  padding: 14px 10px;
+  cursor: pointer;
+}
+.plus-button {
+  border-radius: 0 4px 4px 0;
+  border: none;
+  width: 34px;
+  height: 48px;
+  background-color: #f2f2f2;
+  padding: 14px 10px;
+  cursor: pointer;
+}
+.adults-input {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  width: 40px;
+  height: 20px;
+  padding: 14px 10px;
+  text-align: center;
+  border: none;
+  background-color: #f2f2f2;
+  appearance: textfield;
+}
+.adults-input::-webkit-outer-spin-button,
+.adults-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.form-label {
+  grid-area: children-label;
+}
+.tooltip {
+  position: relative;
+}
+.tooltip-toggle {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #83b3d3;
+  border: none;
+  padding: 0;
+}
+.tooltip-text {
+  position: absolute;
+  width: 256px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: none;
+  padding: 18px;
+  border-radius: 10px;
+  background-color: #333333;
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.30);
+  margin-top: 15px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: none;
+}
+.children-quantity {
+  grid-area: children-quantity;
+  display: flex;
+}
+.search-button {
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 18px 77px;
+  background-color: #83b3d3;
+  border: none;
+  border-radius: 10px;
+  grid-area: search-button;
+  cursor: pointer;
+  margin-top: 48px;
+}
+.search-button:hover,
+.search-button:focus {
+  background-color: #68a2ca;
+  border: none;
+}
+.search-button:active {
+  color: #ffffff4d;
 }
