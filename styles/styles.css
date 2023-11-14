@@ -1328,6 +1328,15 @@ li input {
   background-repeat: no-repeat;
   background-position: center right 20px;
 }
+.field-date:hover,
+.field-date-departure:hover {
+  background-color: #e6e6e6;
+}
+.field-date:focus,
+.field-date-departure:focus {
+  background-color: #e6e6e6;
+  outline: 3px solid #83b3d3;
+}
 .modal-error {
   font-size: 16px;
   font-weight: 400;
@@ -1368,6 +1377,25 @@ li input {
   background-color: #f2f2f2;
   padding: 14px 10px;
   cursor: pointer;
+}
+.minus-button:hover svg,
+.plus-button:hover svg{
+  fill: #000000;
+}
+.minus-button:focus svg,
+.plus-button:focus svg{
+  border: none;
+  fill: #000000;
+  outline: 3px solid #82b3d3;
+  border-radius: 4px;
+}
+.minus-button:active svg,
+.plus-button:active svg {
+  fill: rgba(0, 0, 0, 0.2);
+}
+.minus-button:focus,
+.plus-button:focus {
+  border: none;
 }
 .plus-button {
   border-radius: 0 4px 4px 0;
@@ -1415,7 +1443,7 @@ li input {
 }
 .tooltip-text {
   position: absolute;
-  width: 256px;
+  width: 220px;
   color: #ffffff;
   font-size: 16px;
   font-weight: 400;
@@ -1427,10 +1455,21 @@ li input {
   box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.30);
   margin-top: 15px;
   top: 100%;
-  left: 50%;
+  left: 18px;
   transform: translateX(-50%);
   z-index: 1;
   display: none;
+}
+.tooltip-text::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  rotate: 45deg;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333333;
 }
 .children-quantity {
   grid-area: children-quantity;
